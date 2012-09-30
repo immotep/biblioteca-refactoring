@@ -106,7 +106,7 @@ public class Program {
         }
     }
 
-    private static int getUserInput(BufferedReader reader) {
+    public static int getUserInput(BufferedReader reader) {
         int i1 = 0;
         try {
             String value = reader.readLine();

@@ -4,10 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.containsString;
 import static refactoring.biblioteca.StubbedInputStream.stubInputStream;
@@ -149,5 +148,27 @@ public class ProgramTest {
     @After
     public void after() {
         System.setOut(console);
+    }
+
+
+    @Test
+    public void testUserTypedIntegerIsCorrectlyRead() throws Exception {
+        String expectedTypedInteger = "123";
+        System.setIn(stubInputStream().toReturn(expectedTypedInteger).atSomePoint());
+
+        int input = Program.getUserInput(new BufferedReader(new InputStreamReader(System.in)));
+
+        assertEquals(expectedTypedInteger, String.valueOf(input));
+    }
+
+    @Test
+    public void testUserTypedNonIntegerIsThrown() {
+        System.setOut(new PrintStream(outputStream));
+        String expectedTypedInteger = "some nonsense string";
+        System.setIn(stubInputStream().toReturn(expectedTypedInteger).atSomePoint());
+
+        int input = Program.getUserInput(new BufferedReader(new InputStreamReader(System.in)));
+
+        assertThat(outputStream.toString(), containsString("Enter a valid integer!!"));
     }
 }
