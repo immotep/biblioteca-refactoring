@@ -22,15 +22,8 @@ public class Program {
                 printAllBooks();
             } else if (i1 == 2) {
                 System.out.println(" Please enter the number of the book you wish to checkout: ");
-                int i2 = 0;
-                try {
-                    i2 = Integer.parseInt(reader.readLine());
-                } catch (Exception e) {
-                    // Do you know what numbers are!!!
-                    System.out.println("Enter a valid integer!!");
 
-                }
-                switch (i2) {
+                switch (getUserInput(reader)) {
                     case 1:
                         System.out.println("\n");
                         System.out.println(" Thank You! Enjoy the book.");
