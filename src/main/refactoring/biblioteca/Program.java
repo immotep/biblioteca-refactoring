@@ -8,6 +8,10 @@ public class Program {
     private static String savedLibraryNumber = "";
 
     public static void main(String[] args) {
+        launchApp();
+    }
+
+    private static void launchApp() {
         printWelcome();
 
         while (true) {
@@ -28,7 +32,6 @@ public class Program {
                 printMovieCatalog();
             } else if (i1 == 5) {
                 logUserIn(reader);
-
             } else if (i1 == 9) {
                 System.out.println("Quitting...");
                 break;
