@@ -8,8 +8,10 @@ public class Program {
     private static String savedLibraryNumber = "";
 
     public static void main(String[] args) {
+        printWelcome();
+
         while (true) {
-            printWelcome();
+
             printMenu();
 
             InputStreamReader inputStream = new InputStreamReader(System.in);
