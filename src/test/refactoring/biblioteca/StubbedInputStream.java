@@ -1,4 +1,4 @@
-package test;
+package refactoring.biblioteca;
 
 import java.io.IOException;
 import java.io.InputStream;
