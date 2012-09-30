@@ -115,6 +115,8 @@ public class ProgramTest {
 
         assertThat(outputStream.toString(), containsString("Your library number is"));
         assertThat(outputStream.toString(), containsString("111-1111"));
+
+        Program.clearLogin();
     }
 
     @Test

@@ -71,6 +71,7 @@ public class Program {
                         System.out.println("Sorry we don't have that book yet.");
                 }
             } else if (i1 == 3) {
+
                 if (loggedIn()) {
                     System.out.println("\n");
                     System.out.println("Your library number is " + savedLibraryNumber);
@@ -134,7 +135,7 @@ public class Program {
     }
 
 
-    private static void clearLogin() {
+    public static void clearLogin() {
         loggedIn = false;
         savedLibraryNumber = "";
     }
