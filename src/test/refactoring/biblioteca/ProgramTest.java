@@ -16,6 +16,7 @@ import static refactoring.biblioteca.StubbedInputStream.stubInputStream;
 public class ProgramTest {
     private PrintStream console;
     private ByteArrayOutputStream outputStream;
+    private Program program;
     private static final String EXIT_CODE = "9";
     private static final String BOOK_LISTING = "1";
     private static final String TALK_TO_LIBRARIAN = "3";
@@ -27,6 +28,7 @@ public class ProgramTest {
     public void before() {
         console = System.out;
         outputStream = new ByteArrayOutputStream();
+        program = new Program();
     }
 
     @Test
@@ -115,7 +117,7 @@ public class ProgramTest {
         assertThat(outputStream.toString(), containsString("Your library number is"));
         assertThat(outputStream.toString(), containsString("111-1111"));
 
-        Program.clearLogin();
+       program.clearLogin();
     }
 
     @Test
@@ -156,7 +158,7 @@ public class ProgramTest {
         String expectedTypedInteger = "123";
         System.setIn(stubInputStream().toReturn(expectedTypedInteger).atSomePoint());
 
-        int input = Program.getUserInput(new BufferedReader(new InputStreamReader(System.in)));
+        int input = program.getUserInput(new BufferedReader(new InputStreamReader(System.in)));
 
         assertEquals(expectedTypedInteger, String.valueOf(input));
     }
@@ -167,7 +169,7 @@ public class ProgramTest {
         String expectedTypedInteger = "some nonsense string";
         System.setIn(stubInputStream().toReturn(expectedTypedInteger).atSomePoint());
 
-        int input = Program.getUserInput(new BufferedReader(new InputStreamReader(System.in)));
+        int input = program.getUserInput(new BufferedReader(new InputStreamReader(System.in)));
 
         assertThat(outputStream.toString(), containsString("Enter a valid integer!!"));
     }

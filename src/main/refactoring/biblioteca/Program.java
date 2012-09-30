@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Program {
-    private static boolean loggedIn = false;
-    private static String savedLibraryNumber = "";
+    private  boolean loggedIn = false;
+    private  String savedLibraryNumber = "";
 
     public static void main(String[] args) {
-        launchApp();
+        new Program().launchApp();
     }
 
-    private static void launchApp() {
+    private  void launchApp() {
         printWelcome();
 
         while (true) {
@@ -42,7 +42,7 @@ public class Program {
         }
     }
 
-    private static void logUserIn(BufferedReader reader) {
+    private  void logUserIn(BufferedReader reader) {
         clearLogin();
         System.out.println("Enter your library number");
         try {
@@ -64,7 +64,7 @@ public class Program {
         }
     }
 
-    private static void printMovieCatalog() {
+    private  void printMovieCatalog() {
         System.out.println(createMovie("Rocky", "John G. Avildsen", "10"));
         System.out.println(createMovie("Rocky II", "John G. Avildsen", "9"));
         System.out.println(createMovie("Rocky III", "John G. Avildsen", "8"));
@@ -77,7 +77,7 @@ public class Program {
         System.out.println(createMovie("Pulp Fiction", "Quentin Tarantino", "6"));
     }
 
-    private static void checkLibraryNumber() {
+    private  void checkLibraryNumber() {
         if (loggedIn()) {
             System.out.println("\n");
             System.out.println("Your library number is " + savedLibraryNumber);
@@ -88,7 +88,7 @@ public class Program {
         }
     }
 
-    private static void checkOutBook(BufferedReader reader) {
+    private  void checkOutBook(BufferedReader reader) {
         System.out.println(" Please enter the number of the book you wish to checkout: ");
 
         switch (getUserInput(reader)) {
@@ -114,14 +114,14 @@ public class Program {
         }
     }
 
-    private static void printAllBooks() {
+    private  void printAllBooks() {
         System.out.println(" 1. Sweet Valley High vol. 4 by John Travolta ");
         System.out.println(" 2. eXtreme Programming Explained by Kent Beck ");
         System.out.println(" 3. How to Win Friends and Influence People by Dale Carnagie ");
         System.out.println(" 4. How to Cheat at TWU Assignements by Anonymous ");
     }
 
-    public static int getUserInput(BufferedReader reader) {
+    public  int getUserInput(BufferedReader reader) {
         int i1 = 0;
         try {
             String value = reader.readLine();
@@ -133,7 +133,7 @@ public class Program {
         return i1;
     }
 
-    private static void printMenu() {
+    private  void printMenu() {
         System.out.println("*                Menu                                    *");
         System.out.println("*         =====================                          *");
         System.out.println("*         1. List Book Catalog                           *");
@@ -146,31 +146,31 @@ public class Program {
         System.out.println("Your Selection: ");
     }
 
-    private static void printWelcome() {
+    private  void printWelcome() {
         System.out.println("**********************************************************");
         System.out.println("* Welcome to The Bangalore Public Library System - Biblioteca *");
         System.out.println("**********************************************************");
     }
 
-    private static boolean validPassword(String password) {
+    private  boolean validPassword(String password) {
         return "bhaisahab".equals(password);
     }
 
-    private static boolean validLibraryNumber(String libraryNumber) {
+    private  boolean validLibraryNumber(String libraryNumber) {
         return libraryNumber.matches("\\d\\d\\d-\\d\\d\\d\\d");
     }
 
-    private static boolean loggedIn() {
+    private  boolean loggedIn() {
         return loggedIn;
     }
 
 
-    public static void clearLogin() {
+    public  void clearLogin() {
         loggedIn = false;
         savedLibraryNumber = "";
     }
 
-    private static String createMovie(String movieTitle, String movieDirector, String movieRanking) {
+    private  String createMovie(String movieTitle, String movieDirector, String movieRanking) {
         return movieTitle + " - Director: " + movieDirector + " Rating: " + movieRanking;
     }
 }
