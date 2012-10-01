@@ -17,10 +17,10 @@ public class ProgramTest {
     private PrintStream console;
     private ByteArrayOutputStream outputStream;
     private Program program;
-    private static final String EXIT_CODE = "9";
+    protected static final String EXIT_CODE = "9";
     public static final String BOOK_LISTING = "1";
     private static final String TALK_TO_LIBRARIAN = "3";
-    private static final String CHECK_OUT_BOOK = "2";
+    protected static final String CHECK_OUT_BOOK = "2";
     private static final String MOVIE_LISTING = "4";
     private static final String LOGIN = "5";
 

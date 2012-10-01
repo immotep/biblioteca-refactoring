@@ -8,26 +8,26 @@ public class Program {
     private  String savedLibraryNumber = "";
     private  Menu menu = new Menu(this);
 
+    InputStreamReader inputStream = new InputStreamReader(System.in);
+    BufferedReader reader = new BufferedReader(inputStream);
+
     public static void main(String[] args) {
         new Program().launchApp();
     }
 
     private  void launchApp() {
+
         printWelcome();
 
         while (true) {
 
             printMenu();
 
-            InputStreamReader inputStream = new InputStreamReader(System.in);
-            BufferedReader reader = new BufferedReader(inputStream);
             int i1 = getUserInput(reader);
 
             menu.choose(i1);
 
-            if (i1 == 2) {
-                checkOutBook(reader);
-            } else if (i1 == 3) {
+           if (i1 == 3) {
                 checkLibraryNumber();
             } else if (i1 == 5) {
                 logUserIn(reader);
@@ -87,7 +87,7 @@ public class Program {
         }
     }
 
-    private  void checkOutBook(BufferedReader reader) {
+    protected void checkOutBook(BufferedReader reader) {
         System.out.println(" Please enter the number of the book you wish to checkout: ");
 
         switch (getUserInput(reader)) {
