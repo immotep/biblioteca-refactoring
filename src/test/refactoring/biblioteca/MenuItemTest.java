@@ -5,10 +5,8 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
-import java.io.PrintStream;
 
-import static org.junit.Assert.assertThat;
-import static org.junit.matchers.JUnitMatchers.containsString;
+import static org.junit.Assert.assertEquals;
 
 public class MenuItemTest {
 
@@ -22,11 +20,8 @@ public class MenuItemTest {
     @Test
     public void testMenuItemCommandIsExecuted() throws Exception {
 
-        System.setOut(new PrintStream(outputStream));
         MenuItem item = new MenuItem("string to print");
 
-        item.execute();
-
-        assertThat(outputStream.toString(), containsString("string to print"));
+        assertEquals("string to print", item.execute());
     }
 }

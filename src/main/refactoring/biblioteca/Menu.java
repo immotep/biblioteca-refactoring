@@ -16,21 +16,17 @@ public class Menu {
 
     private void createMenu(){
           allMenu.add(new MenuItem(new Library().listOfBooks()));
-          allMenu.add(new MenuItem("bogus"));
+          allMenu.add(new RequestABookItem());
           allMenu.add(new MenuItem("bogus"));
           allMenu.add(new MenuItem(new MovieCatalog().listOfMovies()));
 
     }
 
-    public void choose(int s) {
-        if (s == 2) {
-            program.checkOutBook(program.reader);
-            return;
-        }
+    public String choose(int s) {
         try{
-            allMenu.get(s-1).execute();
+            return allMenu.get(s-1).execute();
         } catch (IndexOutOfBoundsException e){
-
+           return "Select a valid integer!!";
         }
     }
 }

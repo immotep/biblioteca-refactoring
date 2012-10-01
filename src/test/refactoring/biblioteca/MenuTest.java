@@ -7,8 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.assertThat;
-import static org.junit.matchers.JUnitMatchers.containsString;
+import static org.junit.Assert.assertEquals;
 import static refactoring.biblioteca.StubbedInputStream.stubInputStream;
 
 public class MenuTest {
@@ -25,26 +24,29 @@ public class MenuTest {
     @Test
     public void testWhen_1_IsSelectedPrintAllBookMenuOptionIsChosen() throws Exception {
 
-        System.setOut(new PrintStream(outputStream));
+        String listOfBooks = "1. Sweet Valley High vol. 4 by John Travolta " + "\n" +
+                "2. eXtreme Programming Explained by Kent Beck " + "\n" +
+                "3. How to Win Friends and Influence People by Dale Carnagie " + "\n" +
+                "4. How to Cheat at TWU Assignements by Anonymous";
 
-        menu.choose(1);
-
-        assertThat(outputStream.toString(), containsString("1. Sweet Valley High vol. 4 by John Travolta "));
-        assertThat(outputStream.toString(), containsString("2. eXtreme Programming Explained by Kent Beck "));
-        assertThat(outputStream.toString(), containsString("3. How to Win Friends and Influence People by Dale Carnagie "));
-        assertThat(outputStream.toString(), containsString("4. How to Cheat at TWU Assignements by Anonymous "));
-    }
+        assertEquals(listOfBooks, menu.choose(1).trim());
+ }
 
     @Test
     public void testWhen_4_IsSelectedViewAllMoviesMenuOptionIsChosen() throws Exception {
 
-        System.setOut(new PrintStream(outputStream));
+        String listOfMovies = "Rocky - Director: John G. Avildsen Rating: 10\n" +
+                "Rocky II - Director: John G. Avildsen Rating: 9\n" +
+                "Rocky III - Director: John G. Avildsen Rating: 8\n" +
+                "Rocky IV - Director: John G. Avildsen Rating: 7\n" +
+                "Rocky V - Director: John G. Avildsen Rating: 8\n" +
+                "Drainage - Director: Francisco Trindade Rating: N/A\n" +
+                "The Shawshank Redemption - Director: Frank Darabont Rating: 10\n" +
+                "The Godfather - Director: Francis Ford Coppola Rating: 7\n" +
+                "Inception - Director: Frank Darabont Rating: 10\n" +
+                "Pulp Fiction - Director: Quentin Tarantino Rating: 6";
 
-        menu.choose(4);
-
-        assertThat(outputStream.toString(), containsString("The Shawshank Redemption - Director: Frank Darabont Rating: 10"));
-        assertThat(outputStream.toString(), containsString("Drainage - Director: Francisco Trindade Rating: N/A"));
-        assertThat(outputStream.toString(), containsString("Pulp Fiction - Director: Quentin Tarantino Rating: 6"));
+        assertEquals(listOfMovies, menu.choose(4).trim());
     }
 
     @Test
@@ -54,8 +56,6 @@ public class MenuTest {
         System.setIn(stubInputStream().toReturn(ProgramTest.CHECK_OUT_BOOK).then("1").then(ProgramTest.EXIT_CODE).atSomePoint());
         menu = new Menu(new Program());
 
-        menu.choose(2);
-
-        assertThat(outputStream.toString(), containsString(" Please enter the number of the book you wish to checkout: "));
+        assertEquals(" Thank You! Enjoy the book.", menu.choose(2));
     }
 }
