@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 public class Program {
     private  boolean loggedIn = false;
     private  String savedLibraryNumber = "";
+    private  Menu menu = new Menu(this);
 
     public static void main(String[] args) {
         new Program().launchApp();
@@ -22,9 +23,9 @@ public class Program {
             BufferedReader reader = new BufferedReader(inputStream);
             int i1 = getUserInput(reader);
 
-            if (i1 == 1) {
-                printAllBooks();
-            } else if (i1 == 2) {
+            menu.choose(String.valueOf(i1));
+
+            if (i1 == 2) {
                 checkOutBook(reader);
             } else if (i1 == 3) {
                 checkLibraryNumber();
@@ -114,7 +115,7 @@ public class Program {
         }
     }
 
-    private  void printAllBooks() {
+    protected void printAllBooks() {
         System.out.println(" 1. Sweet Valley High vol. 4 by John Travolta ");
         System.out.println(" 2. eXtreme Programming Explained by Kent Beck ");
         System.out.println(" 3. How to Win Friends and Influence People by Dale Carnagie ");
