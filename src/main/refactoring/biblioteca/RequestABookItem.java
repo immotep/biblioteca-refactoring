@@ -8,20 +8,22 @@ public class RequestABookItem extends MenuItem {
 
     @Override
     public void execute() {
-        super.execute();    //To change body of overridden methods use File | Settings | File Templates.
-
+        super.execute();
     }
 
     public String process(String book) {
 
-        switch (Integer.parseInt(book)) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
+        try{
+            int bookNumber = Integer.parseInt(book);
+            if (feasible(bookNumber)){
                 return " Thank You! Enjoy the book.";
-            default:
-                return "Sorry we don't have that book yet.";
-        }
+            }
+        } catch (NumberFormatException e){}
+
+        return "Sorry we don't have that book yet.";
+    }
+
+    private boolean feasible(int bookNumber) {
+        return bookNumber <= new Library().getNumberOfBooks() && bookNumber >=0;
     }
 }

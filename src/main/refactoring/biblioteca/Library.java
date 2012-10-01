@@ -6,6 +6,7 @@ import java.util.List;
 public class Library {
 
     private List<String> allBooks = new ArrayList<String>();
+    private int numberOfBooks;
 
     public Library() {
         createAllBooks();
@@ -16,6 +17,12 @@ public class Library {
         allBooks.add(" eXtreme Programming Explained by Kent Beck " );
         allBooks.add(" How to Win Friends and Influence People by Dale Carnagie ");
         allBooks.add(" How to Cheat at TWU Assignements by Anonymous ");
+
+        numberOfBooks = allBooks.size();
+    }
+
+    public int getNumberOfBooks() {
+        return numberOfBooks;
     }
 
     protected  String createBook(String details) {
