@@ -1,5 +1,8 @@
 package refactoring.biblioteca;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Menu {
 
     private Program program;
@@ -10,15 +13,28 @@ public class Menu {
 
     public Menu(Program program) {
         this.program = program;
+        createMenu();
+    }
+
+    private List<MenuItem> allMenu = new ArrayList<MenuItem>();
+
+    private void createMenu(){
+          allMenu.add(new MenuItem(listOfBooks));
+          allMenu.add(new MenuItem("bogus"));
+          allMenu.add(new MenuItem("bogus"));
+          allMenu.add(new MenuItem(new MovieCatalog().listOfMovies()));
+
     }
 
     public void choose(int s) {
-        if (s == 1) {
-            new MenuItem(listOfBooks).execute();
-        }else if (s == 2) {
+        if (s == 2) {
             program.checkOutBook(program.reader);
-        } else if (s == 4) {
-            new MenuItem(new MovieCatalog().listOfMovies()).execute();
+            return;
+        }
+        try{
+            allMenu.get(s-1).execute();
+        } catch (IndexOutOfBoundsException e){
+
         }
     }
 }
