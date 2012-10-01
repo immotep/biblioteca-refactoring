@@ -8,7 +8,6 @@ public class MenuItem {
         this.message = message;
     }
 
-
     public void execute() {
        System.out.println(message);
     }
