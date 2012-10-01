@@ -18,7 +18,7 @@ public class Menu {
         }else if (s == 2) {
             program.checkOutBook(program.reader);
         } else if (s == 4) {
-            program.printMovieCatalog();
+            new MenuItem(new MovieCatalog().listOfMovies()).execute();
         }
     }
 }
