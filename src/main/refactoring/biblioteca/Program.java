@@ -23,14 +23,12 @@ public class Program {
             BufferedReader reader = new BufferedReader(inputStream);
             int i1 = getUserInput(reader);
 
-            menu.choose(String.valueOf(i1));
+            menu.choose(i1);
 
             if (i1 == 2) {
                 checkOutBook(reader);
             } else if (i1 == 3) {
                 checkLibraryNumber();
-            } else if (i1 == 4) {
-                printMovieCatalog();
             } else if (i1 == 5) {
                 logUserIn(reader);
             } else if (i1 == 9) {
@@ -65,7 +63,7 @@ public class Program {
         }
     }
 
-    private  void printMovieCatalog() {
+    protected void printMovieCatalog() {
         System.out.println(createMovie("Rocky", "John G. Avildsen", "10"));
         System.out.println(createMovie("Rocky II", "John G. Avildsen", "9"));
         System.out.println(createMovie("Rocky III", "John G. Avildsen", "8"));
