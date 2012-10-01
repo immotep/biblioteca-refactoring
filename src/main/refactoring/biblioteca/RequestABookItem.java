@@ -9,6 +9,7 @@ public class RequestABookItem extends MenuItem {
     @Override
     public void execute() {
         super.execute();
+        process(new Program().getUserInput());
     }
 
     public String process(String book) {

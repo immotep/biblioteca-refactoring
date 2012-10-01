@@ -1,6 +1,7 @@
 package refactoring.biblioteca;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Program {
@@ -23,20 +24,22 @@ public class Program {
 
             printMenu();
 
-            int i1 = getUserInput(reader);
+            try{
+                int i1 = Integer.parseInt(getUserInput());
 
-            menu.choose(i1);
+                menu.choose(i1);
 
-           if (i1 == 3) {
-                checkLibraryNumber();
-            } else if (i1 == 5) {
-                logUserIn(reader);
-            } else if (i1 == 9) {
-                System.out.println("Quitting...");
-                break;
-            } else {
-                System.out.println("\n");
-                System.out.println("Enter a valid integer!!");
+               if (i1 == 3) {
+                    checkLibraryNumber();
+                } else if (i1 == 5) {
+                    logUserIn(reader);
+                } else if (i1 == 9) {
+                    System.out.println("Quitting...");
+                    break;
+                }
+            } catch(NumberFormatException e){
+                    System.out.println("\n");
+                    System.out.println("Enter a valid integer!!");
             }
         }
     }
@@ -77,7 +80,7 @@ public class Program {
     protected void checkOutBook(BufferedReader reader) {
         System.out.println(" Please enter the number of the book you wish to checkout: ");
 
-        switch (getUserInput(reader)) {
+        switch (Integer.parseInt(getUserInput())) {
             case 1:
                 System.out.println("\n");
                 System.out.println(" Thank You! Enjoy the book.");
@@ -100,16 +103,13 @@ public class Program {
         }
     }
 
-    public  int getUserInput(BufferedReader reader) {
-        int i1 = 0;
+    public  String getUserInput() {
         try {
-            String value = reader.readLine();
-            i1 = Integer.parseInt(value);
-        } catch (Exception e) {
-            // Do you know what numbers are!!!
-            System.out.println("Enter a valid integer!!");
+            return reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return i1;
+        return "Enter a valid integer!!";
     }
 
     private  void printMenu() {

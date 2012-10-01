@@ -157,20 +157,12 @@ public class ProgramTest {
     public void testUserTypedIntegerIsCorrectlyRead() throws Exception {
         String expectedTypedInteger = "123";
         System.setIn(stubInputStream().toReturn(expectedTypedInteger).atSomePoint());
+        program = new Program();
 
-        int input = program.getUserInput(new BufferedReader(new InputStreamReader(System.in)));
+        String input = program.getUserInput();
 
-        assertEquals(expectedTypedInteger, String.valueOf(input));
+        assertEquals(expectedTypedInteger, input);
     }
 
-    @Test
-    public void testUserTypedNonIntegerIsThrown() {
-        System.setOut(new PrintStream(outputStream));
-        String expectedTypedInteger = "some nonsense string";
-        System.setIn(stubInputStream().toReturn(expectedTypedInteger).atSomePoint());
 
-        int input = program.getUserInput(new BufferedReader(new InputStreamReader(System.in)));
-
-        assertThat(outputStream.toString(), containsString("Enter a valid integer!!"));
-    }
 }
