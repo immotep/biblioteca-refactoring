@@ -3,15 +3,21 @@ package refactoring.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+
 import static org.junit.Assert.assertEquals;
 import static refactoring.biblioteca.StubbedInputStream.stubInputStream;
 
 public class CheckLibraryNumberItemTest {
-    Program program;
+    private Program program;
+    private OutputStream outputStream;
 
     @Before
     public void setUp() throws Exception {
         program = new Program();
+        outputStream = new ByteArrayOutputStream();
     }
 
     @Test
@@ -23,6 +29,7 @@ public class CheckLibraryNumberItemTest {
 
     @Test
     public void successfull_log_in() {
+        System.setOut(new PrintStream(outputStream));
         System.setIn(stubInputStream().toReturn("111-1111").then("bhaisahab").atSomePoint());
         program = new Program();
         program.logUserIn(program.reader);

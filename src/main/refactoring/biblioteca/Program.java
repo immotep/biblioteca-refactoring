@@ -29,9 +29,7 @@ public class Program {
 
                 System.out.println(menu.choose(i1));
 
-               if (i1 == 3) {
-                    checkLibraryNumber();
-                } else if (i1 == 5) {
+                if (i1 == 5) {
                     logUserIn(reader);
                 } else if (i1 == 9) {
                     System.out.println("Quitting...");

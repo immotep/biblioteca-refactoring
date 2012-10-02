@@ -17,7 +17,7 @@ public class Menu {
     private void createMenu(){
           allMenu.add(new MenuItem(new Library().listOfBooks()));
           allMenu.add(new RequestABookItem());
-          allMenu.add(new MenuItem("bogus"));
+          allMenu.add(new CheckLibraryNumberItem(program));
           allMenu.add(new MenuItem(new MovieCatalog().listOfMovies()));
 
     }

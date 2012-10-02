@@ -58,4 +58,14 @@ public class MenuTest {
 
         assertEquals(" Thank You! Enjoy the book.", menu.choose(2));
     }
+
+    @Test
+    public void testWhen_3_IsSelectedCheckMyLibraryNumberMenuOptionIsChosen() throws Exception {
+
+        System.setOut(new PrintStream(outputStream));
+        System.setIn(stubInputStream().toReturn(ProgramTest.TALK_TO_LIBRARIAN).atSomePoint());
+        menu = new Menu(new Program());
+
+        assertEquals("Please talk to Librarian. Thank you.", menu.choose(3));
+    }
 }

@@ -19,7 +19,7 @@ public class ProgramTest {
     private Program program;
     protected static final String EXIT_CODE = "9";
     public static final String BOOK_LISTING = "1";
-    private static final String TALK_TO_LIBRARIAN = "3";
+    protected static final String TALK_TO_LIBRARIAN = "3";
     protected static final String CHECK_OUT_BOOK = "2";
     private static final String MOVIE_LISTING = "4";
     protected static final String LOGIN = "5";
@@ -74,15 +74,6 @@ public class ProgramTest {
         assertThat(outputStream.toString(), containsString("Sorry we don't have that book yet."));
     }
 
-    @Test
-    public void talk_to_librarian() {
-        System.setOut(new PrintStream(outputStream));
-        System.setIn(stubInputStream().toReturn(TALK_TO_LIBRARIAN).then(EXIT_CODE).atSomePoint());
-
-        launchApp();
-
-        assertThat(outputStream.toString(), containsString("Please talk to Librarian. Thank you."));
-    }
 
     @Test
     public void invalid_entry() {
