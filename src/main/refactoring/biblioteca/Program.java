@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class Program {
     private  boolean loggedIn = false;
-    protected String savedLibraryNumber = "";
+    private String savedLibraryNumber = "";
     private  Menu menu = new Menu(this);
 
     InputStreamReader inputStream = new InputStreamReader(System.in);
@@ -64,15 +64,6 @@ public class Program {
         }
     }
 
-    private  void checkLibraryNumber() {
-        System.out.println("\n");
-        if (loggedIn()) {
-            System.out.println("Your library number is " + savedLibraryNumber);
-        } else {
-            System.out.println("Please talk to Librarian. Thank you.");
-        }
-    }
-
     public  String getUserInput() {
         try {
             return reader.readLine();
@@ -117,6 +108,10 @@ public class Program {
     public  void clearLogin() {
         loggedIn = false;
         savedLibraryNumber = "";
+    }
+
+    public String getSavedLibraryNumber() {
+        return savedLibraryNumber;
     }
 }
 
