@@ -22,7 +22,7 @@ public class ProgramTest {
     private static final String TALK_TO_LIBRARIAN = "3";
     protected static final String CHECK_OUT_BOOK = "2";
     private static final String MOVIE_LISTING = "4";
-    private static final String LOGIN = "5";
+    protected static final String LOGIN = "5";
 
     @Before
     public void before() {

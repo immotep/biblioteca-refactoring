@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class Program {
     private  boolean loggedIn = false;
-    private  String savedLibraryNumber = "";
+    protected String savedLibraryNumber = "";
     private  Menu menu = new Menu(this);
 
     InputStreamReader inputStream = new InputStreamReader(System.in);
@@ -44,7 +44,7 @@ public class Program {
         }
     }
 
-    private  void logUserIn(BufferedReader reader) {
+    protected void logUserIn(BufferedReader reader) {
         clearLogin();
         System.out.println("Enter your library number");
         try {
@@ -67,41 +67,13 @@ public class Program {
     }
 
     private  void checkLibraryNumber() {
+        System.out.println("\n");
         if (loggedIn()) {
-            System.out.println("\n");
             System.out.println("Your library number is " + savedLibraryNumber);
         } else {
-
-            System.out.println("\n");
             System.out.println("Please talk to Librarian. Thank you.");
         }
     }
-
-//    protected void checkOutBook(BufferedReader reader) {
-//        System.out.println(" Please enter the number of the book you wish to checkout: ");
-//
-//        switch (Integer.parseInt(getUserInput())) {
-//            case 1:
-//                System.out.println("\n");
-//                System.out.println(" Thank You! Enjoy the book.");
-//                break;
-//            case 2:
-//                System.out.println("\n");
-//                System.out.println(" Thank You! Enjoy the book.");
-//                break;
-//            case 3:
-//                System.out.println("\n");
-//                System.out.println(" Thank You! Enjoy the book.");
-//                break;
-//            case 4:
-//                System.out.println("\n");
-//                System.out.println(" Thank You! Enjoy the book.");
-//                break;
-//            default:
-//                System.out.println("\n");
-//                System.out.println("Sorry we don't have that book yet.");
-//        }
-//    }
 
     public  String getUserInput() {
         try {
@@ -139,7 +111,7 @@ public class Program {
         return libraryNumber.matches("\\d\\d\\d-\\d\\d\\d\\d");
     }
 
-    private  boolean loggedIn() {
+    public  boolean loggedIn() {
         return loggedIn;
     }
 

@@ -1,0 +1,23 @@
+package refactoring.biblioteca;
+
+public class CheckLibraryNumberItem extends  MenuItem{
+
+
+    private Program program;
+
+    public CheckLibraryNumberItem(Program program) {
+        super("Please talk to Librarian. Thank you.");
+        this.program = program;
+    }
+
+    @Override
+    public String execute() {
+        System.out.println("\n");
+
+        if (program.loggedIn()) {
+            return "Your library number is " + program.savedLibraryNumber;
+        }
+
+        return super.execute();
+    }
+}
