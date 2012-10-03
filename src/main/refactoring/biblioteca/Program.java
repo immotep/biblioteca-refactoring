@@ -25,14 +25,15 @@ public class Program {
             printMenu();
 
             try{
-                int i1 = Integer.parseInt(getUserInput("Your Selection: "));
+                int option = Integer.parseInt(getUserInput("Your Selection: "));
 
-                System.out.println(menu.choose(i1));
-
-               if (i1 == 9) {
+                if (option == 9) {
                     System.out.println("Quitting...");
                     break;
                 }
+
+                System.out.println(menu.choose(option));
+
             } catch(NumberFormatException e){
                     System.out.println("\n");
                     System.out.println("Enter a valid integer!!");

@@ -5,7 +5,7 @@ public class RequestABookItem extends MenuItem {
     private Program program;
 
     public RequestABookItem(Program program) {
-        super(" Please enter the number of the book you wish to checkout: \n");
+        super("Please enter the number of the book you wish to checkout: ");
         this.program = program;
     }
 
