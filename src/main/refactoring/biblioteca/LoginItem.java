@@ -11,7 +11,7 @@ public class LoginItem extends MenuItem{
 
     @Override
     public String execute() {
-        program.logUserIn(program.reader);
+        program.logUserIn();
 
         if (program.loggedIn()){
             return "You are successfully logged in.";

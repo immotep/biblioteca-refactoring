@@ -30,7 +30,7 @@ public class Program {
                 System.out.println(menu.choose(i1));
 
                 if (i1 == 5) {
-                    logUserIn(reader);
+                    logUserIn();
                 } else if (i1 == 9) {
                     System.out.println("Quitting...");
                     break;
@@ -42,7 +42,7 @@ public class Program {
         }
     }
 
-    protected void logUserIn(BufferedReader reader) {
+    protected void logUserIn() {
         clearLogin();
         String libraryNumber = getUserInput("Enter your library number");
         String password = getUserInput("Enter your Password: ");

@@ -32,7 +32,7 @@ public class CheckLibraryNumberItemTest {
         System.setOut(new PrintStream(outputStream));
         System.setIn(stubInputStream().toReturn("111-1111").then("bhaisahab").atSomePoint());
         program = new Program();
-        program.logUserIn(program.reader);
+        program.logUserIn();
 
         CheckLibraryNumberItem checkMyNumber = new CheckLibraryNumberItem(program);
         assertEquals("Your library number is 111-1111", checkMyNumber.execute());
