@@ -18,10 +18,8 @@ public class ProgramTest {
     private ByteArrayOutputStream outputStream;
     private Program program;
     protected static final String EXIT_CODE = "9";
-    public static final String BOOK_LISTING = "1";
     protected static final String TALK_TO_LIBRARIAN = "3";
     protected static final String CHECK_OUT_BOOK = "2";
-    private static final String MOVIE_LISTING = "4";
     protected static final String LOGIN = "5";
 
     @Before

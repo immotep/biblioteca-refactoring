@@ -21,7 +21,7 @@ public class Menu {
           allMenu.add(new RequestABookItem(program));
           allMenu.add(new CheckLibraryNumberItem(currentUser));
           allMenu.add(new MenuItem(new MovieCatalog().listOfMovies()));
-          allMenu.add(new LoginItem(program));
+          allMenu.add(new LoginItem(currentUser));
     }
 
     public String choose(int s) {

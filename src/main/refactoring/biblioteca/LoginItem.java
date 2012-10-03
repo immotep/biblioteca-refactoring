@@ -2,13 +2,11 @@ package refactoring.biblioteca;
 
 public class LoginItem extends MenuItem{
 
-    private Program program;
     private CurrentUser currentUser;
 
-    public LoginItem(Program program) {
+    public LoginItem(CurrentUser currentUser) {
         super("Wrong username or password.");
-        this.program = program;
-        currentUser = new CurrentUser(program);
+        this.currentUser = currentUser;
     }
 
     @Override

@@ -15,11 +15,9 @@ public class Program {
     }
 
     private  void launchApp() {
-
         printWelcome();
 
         while (true) {
-
             printMenu();
 
             try{
