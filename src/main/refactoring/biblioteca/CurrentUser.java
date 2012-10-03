@@ -14,11 +14,6 @@ public class CurrentUser {
         return loggedIn;
     }
 
-    public  void clearLogin() {
-        loggedIn = false;
-        savedLibraryNumber = "";
-    }
-
     public String getSavedLibraryNumber() {
         return savedLibraryNumber;
     }
@@ -32,7 +27,6 @@ public class CurrentUser {
     }
 
     protected void logUserIn() {
-        clearLogin();
         String libraryNumber = program.getUserInput("Enter your library number");
         String password = program.getUserInput("Enter your Password: ");
         if (validLibraryNumber(libraryNumber) && validPassword(password)) {
