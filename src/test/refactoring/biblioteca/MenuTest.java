@@ -78,4 +78,11 @@ public class MenuTest {
 
         assertEquals("Wrong username or password.", menu.choose(5));
     }
+
+    @Test
+    public void testWhen_integer_not_in_the_option_is_chosen() throws Exception {
+       menu = new Menu(new Program());
+
+        assertEquals("Select a valid integer!!", menu.choose(99999));
+    }
 }
