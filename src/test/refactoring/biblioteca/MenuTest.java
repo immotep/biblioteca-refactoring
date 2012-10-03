@@ -68,4 +68,14 @@ public class MenuTest {
 
         assertEquals("Please talk to Librarian. Thank you.", menu.choose(3));
     }
+
+    @Test
+    public void testWhen_5_IsSelectedLogInMenuOptionIsChosen() throws Exception {
+
+        System.setOut(new PrintStream(outputStream));
+        System.setIn(stubInputStream().toReturn(ProgramTest.LOGIN).then("111-1111").then("wrong password").atSomePoint());
+        menu = new Menu(new Program());
+
+        assertEquals("Wrong username or password.", menu.choose(5));
+    }
 }
