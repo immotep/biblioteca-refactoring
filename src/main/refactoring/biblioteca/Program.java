@@ -25,7 +25,7 @@ public class Program {
             printMenu();
 
             try{
-                int i1 = Integer.parseInt(getUserInput());
+                int i1 = Integer.parseInt(getUserInput("Your Selection: "));
 
                 System.out.println(menu.choose(i1));
 
@@ -64,7 +64,8 @@ public class Program {
         }
     }
 
-    public  String getUserInput() {
+    public  String getUserInput(String variable) {
+        System.out.println(variable);
         try {
             return reader.readLine();
         } catch (IOException e) {
@@ -83,7 +84,6 @@ public class Program {
         System.out.println("*         5. Login                                       *");
         System.out.println("*         9. Exit                                        *");
         System.out.println("**********************************************************");
-        System.out.println("Your Selection: ");
     }
 
     private  void printWelcome() {

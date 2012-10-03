@@ -150,7 +150,7 @@ public class ProgramTest {
         System.setIn(stubInputStream().toReturn(expectedTypedInteger).atSomePoint());
         program = new Program();
 
-        String input = program.getUserInput();
+        String input = program.getUserInput("Your Selection: ");
 
         assertEquals(expectedTypedInteger, input);
     }

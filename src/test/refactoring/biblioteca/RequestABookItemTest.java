@@ -8,10 +8,12 @@ import static org.junit.Assert.assertEquals;
 public class RequestABookItemTest {
 
     RequestABookItem request;
+    private Program program;
 
     @Before
     public void setUp() throws Exception {
-        request = new RequestABookItem();
+        program = new Program();
+        request = new RequestABookItem(program);
     }
 
     @Test
