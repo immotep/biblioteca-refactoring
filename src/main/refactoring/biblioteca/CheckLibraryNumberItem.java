@@ -3,17 +3,18 @@ package refactoring.biblioteca;
 public class CheckLibraryNumberItem extends  MenuItem{
 
 
-    private Program program;
+    private CurrentUser currentUser;
 
-    public CheckLibraryNumberItem(Program program) {
+    public CheckLibraryNumberItem(CurrentUser currentUser) {
         super("Please talk to Librarian. Thank you.");
-        this.program = program;
+        this.currentUser = currentUser;
     }
 
     @Override
     public String execute() {
-        if (program.loggedIn()) {
-            return "Your library number is " + program.getSavedLibraryNumber();
+
+        if (currentUser.loggedIn()) {
+            return "Your library number is " + currentUser.getSavedLibraryNumber();
         }
 
         return super.execute();

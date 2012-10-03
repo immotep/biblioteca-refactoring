@@ -6,9 +6,11 @@ import java.util.List;
 public class Menu {
 
     private Program program;
+    private CurrentUser currentUser;
 
     public Menu(Program program) {
         this.program = program;
+        currentUser = new CurrentUser(program);
         createMenu();
     }
 
@@ -17,7 +19,7 @@ public class Menu {
     private void createMenu(){
           allMenu.add(new MenuItem(new Library().listOfBooks()));
           allMenu.add(new RequestABookItem(program));
-          allMenu.add(new CheckLibraryNumberItem(program));
+          allMenu.add(new CheckLibraryNumberItem(currentUser));
           allMenu.add(new MenuItem(new MovieCatalog().listOfMovies()));
           allMenu.add(new LoginItem(program));
     }

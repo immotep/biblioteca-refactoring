@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Program {
-    private  boolean loggedIn = false;
-    private String savedLibraryNumber = "";
     private  Menu menu = new Menu(this);
 
     InputStreamReader inputStream = new InputStreamReader(System.in);
@@ -40,16 +38,6 @@ public class Program {
         }
     }
 
-    protected void logUserIn() {
-        clearLogin();
-        String libraryNumber = getUserInput("Enter your library number");
-        String password = getUserInput("Enter your Password: ");
-        if (validLibraryNumber(libraryNumber) && validPassword(password)) {
-            loggedIn = true;
-            savedLibraryNumber = libraryNumber;
-        }
-    }
-
     public  String getUserInput(String variable) {
         System.out.println(variable);
         try {
@@ -78,26 +66,6 @@ public class Program {
         System.out.println("* Welcome to The Bangalore Public Library System - Biblioteca *");
     }
 
-    private  boolean validPassword(String password) {
-        return "bhaisahab".equals(password);
-    }
 
-    private  boolean validLibraryNumber(String libraryNumber) {
-        return libraryNumber.matches("\\d\\d\\d-\\d\\d\\d\\d");
-    }
-
-    public  boolean loggedIn() {
-        return loggedIn;
-    }
-
-
-    public  void clearLogin() {
-        loggedIn = false;
-        savedLibraryNumber = "";
-    }
-
-    public String getSavedLibraryNumber() {
-        return savedLibraryNumber;
-    }
 }
 
