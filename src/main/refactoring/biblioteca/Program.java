@@ -32,10 +32,9 @@ public class Program {
                     break;
                 }
 
-                System.out.println(menu.choose(option));
+                System.out.println("\n" + menu.choose(option) + "\n");
 
             } catch(NumberFormatException e){
-                    System.out.println("\n");
                     System.out.println("Enter a valid integer!!");
             }
         }

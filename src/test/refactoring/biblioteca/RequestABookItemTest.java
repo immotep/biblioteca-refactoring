@@ -20,7 +20,7 @@ public class RequestABookItemTest {
     public void reserveABookShouldReturnThankYouWhenBookIsAvailable() throws Exception {
         String bookNumber = "1";
 
-        assertEquals(" Thank You! Enjoy the book.", request.process(bookNumber));
+        assertEquals("Thank You! Enjoy the book.", request.process(bookNumber));
     }
 
     @Test

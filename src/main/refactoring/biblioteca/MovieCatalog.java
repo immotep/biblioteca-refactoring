@@ -35,7 +35,7 @@ public class MovieCatalog {
             list.append(s).append("\n");
         }
 
-        return list.toString();
+        return list.toString().trim();
     }
 
 }

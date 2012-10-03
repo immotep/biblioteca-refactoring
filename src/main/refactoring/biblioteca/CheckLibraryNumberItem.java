@@ -12,8 +12,6 @@ public class CheckLibraryNumberItem extends  MenuItem{
 
     @Override
     public String execute() {
-        System.out.println("\n");
-
         if (program.loggedIn()) {
             return "Your library number is " + program.getSavedLibraryNumber();
         }

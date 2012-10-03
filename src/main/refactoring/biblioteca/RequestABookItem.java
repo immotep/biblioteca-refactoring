@@ -19,7 +19,7 @@ public class RequestABookItem extends MenuItem {
         try{
             int bookNumber = Integer.parseInt(book);
             if (feasible(bookNumber)){
-                return " Thank You! Enjoy the book.";
+                return "Thank You! Enjoy the book.";
             }
         } catch (NumberFormatException e){}
 

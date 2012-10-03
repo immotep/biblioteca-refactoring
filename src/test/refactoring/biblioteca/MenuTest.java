@@ -56,7 +56,7 @@ public class MenuTest {
         System.setIn(stubInputStream().toReturn(ProgramTest.CHECK_OUT_BOOK).then("1").then(ProgramTest.EXIT_CODE).atSomePoint());
         menu = new Menu(new Program());
 
-        assertEquals(" Thank You! Enjoy the book.", menu.choose(2));
+        assertEquals("Thank You! Enjoy the book.", menu.choose(2));
     }
 
     @Test

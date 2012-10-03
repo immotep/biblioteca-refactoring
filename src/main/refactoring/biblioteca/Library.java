@@ -35,7 +35,7 @@ public class Library {
             list.append(String.valueOf(allBooks.indexOf(s)+1)).append(".").append(s).append("\n");
         }
 
-        return list.toString();
+        return list.toString().trim();
     }
 
 }
