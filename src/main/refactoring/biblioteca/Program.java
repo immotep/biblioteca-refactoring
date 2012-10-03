@@ -29,9 +29,7 @@ public class Program {
 
                 System.out.println(menu.choose(i1));
 
-                if (i1 == 5) {
-                    logUserIn();
-                } else if (i1 == 9) {
+               if (i1 == 9) {
                     System.out.println("Quitting...");
                     break;
                 }
