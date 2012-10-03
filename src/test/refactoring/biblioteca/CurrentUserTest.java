@@ -27,5 +27,33 @@ public class CurrentUserTest {
         assertEquals(true, currentUser.loggedIn());
     }
 
+    @Test
+    public void should_be_loggedOut_if_given_wrong_password() throws Exception {
+        System.setIn(stubInputStream().toReturn("111-1111").then("wrong password").atSomePoint());
+        CurrentUser currentUser = new CurrentUser(new Program());
 
+        currentUser.logUserIn();
+
+        assertEquals(false, currentUser.loggedIn());
+    }
+
+    @Test
+    public void should_be_loggedOut_if_given_wrong_username() throws Exception {
+        System.setIn(stubInputStream().toReturn("wrong password").then("bhaisahab").atSomePoint());
+        CurrentUser currentUser = new CurrentUser(new Program());
+
+        currentUser.logUserIn();
+
+        assertEquals(false, currentUser.loggedIn());
+    }
+
+    @Test
+    public void should_be_loggedOut_if_username_does_not_follow_format() throws Exception {
+        System.setIn(stubInputStream().toReturn("211-1111").then("bhaisahab").atSomePoint());
+        CurrentUser currentUser = new CurrentUser(new Program());
+
+        currentUser.logUserIn();
+
+        assertEquals(false, currentUser.loggedIn());
+    }
 }

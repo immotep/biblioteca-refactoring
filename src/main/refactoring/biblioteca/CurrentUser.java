@@ -23,10 +23,12 @@ public class CurrentUser {
     }
 
     private  boolean validLibraryNumber(String libraryNumber) {
-        return libraryNumber.matches("\\d\\d\\d-\\d\\d\\d\\d");
+
+        return libraryNumber.matches("111-\\d\\d\\d\\d");
     }
 
     protected void logUserIn() {
+        loggedIn = false;
         String libraryNumber = program.getUserInput("Enter your library number");
         String password = program.getUserInput("Enter your Password: ");
         if (validLibraryNumber(libraryNumber) && validPassword(password)) {

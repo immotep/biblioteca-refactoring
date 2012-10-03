@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
-import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 import static refactoring.biblioteca.StubbedInputStream.stubInputStream;
@@ -51,8 +50,6 @@ public class MenuTest {
 
     @Test
     public void testWhen_2_IsSelectedReserveABookMenuOptionIsChosen() throws Exception {
-
-        System.setOut(new PrintStream(outputStream));
         System.setIn(stubInputStream().toReturn(ProgramTest.CHECK_OUT_BOOK).then("1").then(ProgramTest.EXIT_CODE).atSomePoint());
         menu = new Menu(new Program());
 
@@ -61,8 +58,6 @@ public class MenuTest {
 
     @Test
     public void testWhen_3_IsSelectedCheckMyLibraryNumberMenuOptionIsChosen() throws Exception {
-
-        System.setOut(new PrintStream(outputStream));
         System.setIn(stubInputStream().toReturn(ProgramTest.TALK_TO_LIBRARIAN).atSomePoint());
         menu = new Menu(new Program());
 
@@ -71,8 +66,6 @@ public class MenuTest {
 
     @Test
     public void testWhen_5_IsSelectedLogInMenuOptionIsChosen() throws Exception {
-
-        System.setOut(new PrintStream(outputStream));
         System.setIn(stubInputStream().toReturn(ProgramTest.LOGIN).then("111-1111").then("wrong password").atSomePoint());
         menu = new Menu(new Program());
 
