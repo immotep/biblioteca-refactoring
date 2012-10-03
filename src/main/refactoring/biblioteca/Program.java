@@ -63,6 +63,7 @@ public class Program {
     }
 
     private  void printMenu() {
+        System.out.println("**********************************************************");
         System.out.println("*                Menu                                    *");
         System.out.println("*         =====================                          *");
         System.out.println("*         1. List Book Catalog                           *");
@@ -77,7 +78,6 @@ public class Program {
     private  void printWelcome() {
         System.out.println("**********************************************************");
         System.out.println("* Welcome to The Bangalore Public Library System - Biblioteca *");
-        System.out.println("**********************************************************");
     }
 
     private  boolean validPassword(String password) {
