@@ -44,23 +44,11 @@ public class Program {
 
     protected void logUserIn(BufferedReader reader) {
         clearLogin();
-        System.out.println("Enter your library number");
-        try {
-            String libraryNumber = reader.readLine();
-            if (validLibraryNumber(libraryNumber)) {
-                try {
-                    System.out.println("Enter your Password: ");
-                    String password = reader.readLine();
-                    if (validPassword(password)) {
-                        loggedIn = true;
-                        savedLibraryNumber = libraryNumber;
-                    }
-                } catch (Exception e) {
-
-                }
-            }
-        } catch (Exception e) {
-
+        String libraryNumber = getUserInput("Enter your library number");
+        String password = getUserInput("Enter your Password: ");
+        if (validLibraryNumber(libraryNumber) && validPassword(password)) {
+            loggedIn = true;
+            savedLibraryNumber = libraryNumber;
         }
     }
 

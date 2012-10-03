@@ -25,7 +25,8 @@ public class Menu {
         try{
             return allMenu.get(s-1).execute();
         } catch (IndexOutOfBoundsException e){
-           return "Select a valid integer!!";
+//           return "Select a valid integer!!";
         }
+        return "";
     }
 }
